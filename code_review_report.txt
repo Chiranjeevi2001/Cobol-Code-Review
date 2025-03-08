@@ -1,1 +1,2 @@
-No significant issues detected.
+Long method detected: MAIN-PROCEDURE. has 6 statements.
+Long method detected: CALCULATIONS. has 23 statements.

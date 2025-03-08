@@ -33,11 +33,11 @@ class CodeReviewListener(Cobol85Listener):
     
     def analyze_code(self):
         for para, length in self.paragraph_lengths.items():
-            if length > 50:
+            if length > 5:
                 self.issues.append(f"Long method detected: {para} has {length} statements.")
         
         for para, depth in self.max_nesting.items():
-            if depth > 3:
+            if depth > 1:
                 self.issues.append(f"Deep nesting detected in {para}: nesting level {depth}.")
     
     def get_review_report(self):
@@ -58,7 +58,7 @@ def perform_code_review(cobol_file_path):
     return listener.get_review_report()
 
 if __name__ == "__main__":
-    cobol_code_path = "HACKRANK.cbl"  # Change to your COBOL file path
+    cobol_code_path = "Car_Rental.cbl"  # Change to your COBOL file path
     report = perform_code_review(cobol_code_path)
     with open("code_review_report.txt", "w", encoding="utf-8") as f:
         f.write(report)
